@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bowlby_One_SC, DM_Mono, Geist, Geist_Mono } from "next/font/google";
+import { Bowlby_One_SC, DM_Mono } from "next/font/google";
 import "./globals.css";
 
 const bowlby = Bowlby_One_SC({
