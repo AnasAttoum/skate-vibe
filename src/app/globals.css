@@ -34,7 +34,7 @@ body {
 
 
 .bg-texture {
-  background-image: url("/bg-texture.webp");
+  background-image: url("/assets/background/bg-texture.webp");
   background-size: 720px 460px;
   background-repeat: repeat;
   background-position: center;
