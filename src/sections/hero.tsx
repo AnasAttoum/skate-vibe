@@ -1,11 +1,9 @@
-"use client";
-
 import Background from "@/components/background";
 import Bounded from "@/components/bounded";
 import ButtonLink from "@/components/button-link";
 import Heading from "@/components/heading";
 
-export default async function Hero() {
+export default function Hero() {
   return (
     <Bounded className="bg-pink relative h-dvh overflow-hidden bg-texture">
       <Background />
