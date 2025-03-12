@@ -40,7 +40,7 @@ body {
 }
 
 .button-cutout {
-  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px;
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px;
   position: relative;
   z-index: 1;
 

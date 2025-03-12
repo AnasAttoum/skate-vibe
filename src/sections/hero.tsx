@@ -1,11 +1,13 @@
+import Background from "@/components/background";
 import Bounded from "@/components/bounded";
 import ButtonLink from "@/components/button-link";
 import Heading from "@/components/heading";
 
-export default function Hero() {
+export default async function Hero() {
   return (
     <Bounded className="bg-pink relative h-dvh overflow-hidden bg-texture">
-      <div className="absolute inset-0 mx-auto mt-24 max-w-6xl grid grid-rows-[1fr, auto] place-items-end p-5">
+      <Background />
+      <div className="absolute inset-0 mx-auto mt-28 md:mt-24 max-w-6xl grid grid-rows-[1fr, auto] place-items-end p-5">
         <Heading className="place-self-start relative max-w-md text-justify">
           Ride the Streets, Own the Vibe!
         </Heading>
