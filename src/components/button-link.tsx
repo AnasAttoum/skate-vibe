@@ -12,6 +12,7 @@ type Props = {
   icon?: "skateboard" | "cart";
   color?: "blue" | "purple";
   onlyIcon?: boolean;
+  withoutIcon?: boolean;
 };
 
 export default function ButtonLink({
@@ -21,6 +22,7 @@ export default function ButtonLink({
   icon = "skateboard",
   color = "blue",
   onlyIcon = false,
+  withoutIcon = false,
 }: Props) {
   return (
     <Link
@@ -32,20 +34,27 @@ export default function ButtonLink({
         className
       )}
     >
-      <Image
-        src={icon === "skateboard" ? favicon : "/assets/icons/cart.svg"}
-        alt="Scateboard"
-        width={25}
-        height={20}
-        className={clsx(
-          "transition-all duration-300 z-10",
-          icon === "skateboard" && "group-hover:rotate-45",
-          icon === "cart" && "scale-x-[-1] -rotate-45 group-hover:rotate-0"
-        )}
-      />
-      <div
-        className={clsx("w-px bg-black/30 mx-1", onlyIcon && "hidden md:block")}
-      />
+      {!withoutIcon && (
+        <>
+          <Image
+            src={icon === "skateboard" ? favicon : "/assets/icons/cart.svg"}
+            alt="Scateboard"
+            width={25}
+            height={20}
+            className={clsx(
+              "transition-all duration-300 z-10",
+              icon === "skateboard" && "group-hover:rotate-45",
+              icon === "cart" && "scale-x-[-1] -rotate-45 group-hover:rotate-0"
+            )}
+          />
+          <div
+            className={clsx(
+              "w-px bg-black/30 mx-1",
+              onlyIcon && "hidden md:block"
+            )}
+          />
+        </>
+      )}
       <Heading comp="h2" className="z-10">
         {children}
       </Heading>

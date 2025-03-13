@@ -10,7 +10,7 @@ export default function Products() {
       <div className="text-center">
         Score our newest gear before it’s out of stock!
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-7">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mt-7 gap-5">
         {PRODUCTS.map((product) => (
           <SkateboardProduct key={product.id} product={product} />
         ))}
