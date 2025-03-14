@@ -14,13 +14,13 @@ const VERTICAL_LINE_CLASSES =
   "absolute h-full stroke-2 text-stone-200 group-hover:text-stone-400 transition-colors duration-200 top-0";
 
 export default function SkateboardProduct({ product }: Props) {
-  const { name = "", image = "", price = "", reviews = "" } = product;
+  const { name = "", image = "", price = "", reviews = "", color="#f00" } = product;
   return (
     <div className="relative group px-6 pt-2">
       <HorizontalLine className={HORIZONTAL_LINE_CLASSES} />
       <VerticalLine className={`${VERTICAL_LINE_CLASSES} left-4`} />
       <VerticalLine className={`${VERTICAL_LINE_CLASSES} right-4`} />
-      <BackgroundLine color="#f00" className="absolute inset-0 h-full w-full group-hover:blur-[2px] transition-transform duration-200" />
+      <BackgroundLine color={color} className="absolute inset-0 h-full w-full group-hover:blur-[2px] transition-transform duration-200" />
       <div className="group-hover:blur-[2px] transition-transform duration-200">
         <div className="flex justify-between">
           <div>$ {price}</div>
