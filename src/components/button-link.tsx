@@ -12,6 +12,7 @@ type Props = {
   icon?: "skateboard" | "cart";
   color?: "blue" | "purple";
   onlyIcon?: boolean;
+  withoutIcon?: boolean;
 };
 
 export default function ButtonLink({
@@ -19,33 +20,41 @@ export default function ButtonLink({
   className,
   children,
   icon = "skateboard",
-  color = "blue",
+  color = "purple",
   onlyIcon = false,
+  withoutIcon = false,
 }: Props) {
   return (
     <Link
       href={href}
       className={clsx(
         `button-cutout flex gap-2 group p-2 font-bold transition-all duration-300`,
-        color === "blue" && "bg-blue hover:bg-orange",
-        color === "purple" && "bg-purple hover:bg-orange text-white",
+        color === "blue" && "bg-blue hover:bg-dark-blue",
+        color === "purple" && "bg-purple hover:bg-dark-purple text-white",
         className
       )}
     >
-      <Image
-        src={icon === "skateboard" ? favicon : "/assets/icons/cart.svg"}
-        alt="Scateboard"
-        width={25}
-        height={20}
-        className={clsx(
-          "transition-all duration-300 z-10",
-          icon === "skateboard" && "group-hover:rotate-45",
-          icon === "cart" && "scale-x-[-1] -rotate-45 group-hover:rotate-0"
-        )}
-      />
-      <div
-        className={clsx("w-px bg-black/30 mx-1", onlyIcon && "hidden md:block")}
-      />
+      {!withoutIcon && (
+        <>
+          <Image
+            src={icon === "skateboard" ? favicon : "/assets/icons/cart.svg"}
+            alt="Scateboard"
+            width={25}
+            height={20}
+            className={clsx(
+              "transition-all duration-300 z-10",
+              icon === "skateboard" && "group-hover:rotate-45",
+              icon === "cart" && "scale-x-[-1] -rotate-45 group-hover:rotate-0"
+            )}
+          />
+          <div
+            className={clsx(
+              "w-px bg-black/30 mx-1",
+              onlyIcon && "hidden md:block"
+            )}
+          />
+        </>
+      )}
       <Heading comp="h2" className="z-10">
         {children}
       </Heading>

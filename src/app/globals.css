@@ -10,12 +10,13 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-blue: #4876ff;
-  --color-lime: #d9f154;
-  --color-navy: #2e3192;
-  --color-orange: #ff7347;
+  --color-blue: #6a98ff;
+  --color-dark-blue: #4876ff;
+  /* --color-lime: #d9f154; */
+  /* --color-navy: #2e3192; */
   --color-pink: #f7d0e9;
-  --color-purple: #692e54;
+  --color-purple: #cf2eba;
+  --color-dark-purple: #8b2e76;
   --color-gray: #fffdf9;
 }
 
@@ -45,10 +46,10 @@ body {
   z-index: 1;
 
   &:hover {
-    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
-    rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
-    rgba(240, 46, 170, 0.05) 25px 25px;;
-  };
+    box-shadow: rgba(240, 46, 170, 0.4) 5px 5px,
+      rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px,
+      rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+  }
 
   &::before {
     position: absolute;
@@ -90,5 +91,4 @@ body {
       0 0
     );
   }
-
 }

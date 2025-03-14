@@ -17,7 +17,7 @@ export default function Header() {
           </ul>
         </nav>
         <div className="justify-self-end">
-          <ButtonLink icon="cart" color="purple" onlyIcon>
+          <ButtonLink icon="cart" onlyIcon>
             <div className="hidden md:block">Cart</div>
           </ButtonLink>
         </div>
