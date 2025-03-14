@@ -5,7 +5,7 @@ import SkateboardProduct from "@/components/skateboard-product";
 
 export default function Products() {
   return (
-    <Bounded className="bg-texture bg-gray">
+    <Bounded className="bg-gray">
       <Heading className="text-center mb-3">Fresh Arrivals</Heading>
       <div className="text-center">
         Score our newest gear before it’s out of stock!

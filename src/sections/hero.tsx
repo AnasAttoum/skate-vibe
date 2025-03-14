@@ -5,7 +5,7 @@ import Heading from "@/components/heading";
 
 export default function Hero() {
   return (
-    <Bounded className="bg-pink relative h-dvh overflow-hidden bg-texture">
+    <Bounded className="bg-pink relative h-dvh overflow-hidden">
       <Background />
       <div className="absolute inset-0 mx-auto mt-32 md:mt-24 max-w-6xl grid grid-rows-[1fr, auto] place-items-end p-5">
         <Heading className="place-self-start relative max-w-md text-justify">
