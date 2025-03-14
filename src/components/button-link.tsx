@@ -20,7 +20,7 @@ export default function ButtonLink({
   className,
   children,
   icon = "skateboard",
-  color = "blue",
+  color = "purple",
   onlyIcon = false,
   withoutIcon = false,
 }: Props) {
@@ -29,8 +29,8 @@ export default function ButtonLink({
       href={href}
       className={clsx(
         `button-cutout flex gap-2 group p-2 font-bold transition-all duration-300`,
-        color === "blue" && "bg-blue hover:bg-orange",
-        color === "purple" && "bg-purple hover:bg-orange text-white",
+        color === "blue" && "bg-blue hover:bg-dark-blue",
+        color === "purple" && "bg-purple hover:bg-dark-purple text-white",
         className
       )}
     >
