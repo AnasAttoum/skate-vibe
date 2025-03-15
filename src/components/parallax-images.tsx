@@ -29,8 +29,8 @@ export default function ParallaxImages({ foregroundImage, alt }: Props) {
       const { x: targetX, y: targetY } = targetPosition.current;
       const { x: currentX, y: currentY } = currentPosition.current;
 
-      const newX = (currentX + (targetX - currentX)) * -10;
-      const newY = (currentY + (targetY - currentY)) * -10;
+      const newX = (currentX + (targetX - currentX)) * -15;
+      const newY = (currentY + (targetY - currentY)) * -15;
 
       currentPosition.current = { x: newX, y: newY };
 
@@ -38,9 +38,9 @@ export default function ParallaxImages({ foregroundImage, alt }: Props) {
         backgroundRef.current.style.transform = `translate(${newX}px, ${newY}px)`;
       }
       if (foregroundRef.current) {
-        foregroundRef.current.style.transform = `translate(${newX * 2.1}px, ${
+        foregroundRef.current.style.transform = `translate(${newX * 2.5}px, ${
           newY * 2.5
-        }px) rotate(${newX * 5}deg)`;
+        }px) rotate(${newX * 2}deg)`;
       }
       requestAnimationFrame(animationFrame);
     };
