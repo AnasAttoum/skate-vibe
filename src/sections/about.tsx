@@ -1,13 +1,15 @@
 import Bounded from "@/components/bounded";
 import Heading from "@/components/heading";
-import Image from "next/image";
+import ParallaxImages from "@/components/parallax-images";
 
 export default function About() {
   return (
     <Bounded className="bg-blue text-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center my-0 md:my-10">
         <div>
-          <Heading className="my-10 leading-10">Wheels That Roll with You</Heading>
+          <Heading className="my-10 leading-10">
+            Wheels That Roll with You
+          </Heading>
           <Heading comp="h4" className="max-w-md leading-8">
             From smooth pavement to rugged terrain, our high-rebound urethane
             wheels adapt to your ride. Designed for speed, durability, and
@@ -15,14 +17,7 @@ export default function About() {
           </Heading>
         </div>
 
-        <div className="flex justify-center">
-          <Image
-            src="/assets/icons/wheel.svg"
-            alt="Wheel"
-            width={150}
-            height={150}
-          />
-        </div>
+        <ParallaxImages foregroundImage="/assets/icons/wheel.svg" alt="wheel" />
       </div>
     </Bounded>
   );
