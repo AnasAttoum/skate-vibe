@@ -12,12 +12,13 @@
   --font-mono: var(--font-geist-mono);
   --color-blue: #6a98ff;
   --color-dark-blue: #4876ff;
-  /* --color-lime: #d9f154; */
-  /* --color-navy: #2e3192; */
+  --color-dark-green: #05291c;
+  --color-navy: #2e3192;
   --color-pink: #f7d0e9;
   --color-purple: #cf2eba;
   --color-dark-purple: #8b2e76;
   --color-gray: #fffdf9;
+  --color-dark-gray: #333f4c;
 }
 
 @media (prefers-color-scheme: dark) {

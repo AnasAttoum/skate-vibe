@@ -8,7 +8,7 @@ type Props = {
 
 export default function Bounded({children, className}:Props) {
   return (
-    <div className={clsx("px-6 py-10", className)}>
+    <div className={clsx("px-6 py-10 bg-texture", className)}>
       <div className="mx-auto w-full max-w-6xl">{children}</div>
     </div>
   )
