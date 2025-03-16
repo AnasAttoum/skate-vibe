@@ -50,7 +50,7 @@ export default function SkateboardProduct({ product }: Props) {
 
       <div className="text-center font-bold mt-2">{name}</div>
 
-      <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-40">
+      <div className="absolute inset-0 justify-center items-center flex md:hidden group-hover:flex transition-opacity duration-200 z-40">
         <ButtonLink withoutIcon>Customize</ButtonLink>
       </div>
     </div>
