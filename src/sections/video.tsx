@@ -3,7 +3,7 @@ import VideoFrame from "@/components/video-frame";
 
 export default function Video() {
   return (
-    <Bounded className="bg-zinc-800 relative">
+    <Bounded className="bg-zinc-800">
         <VideoFrame />
     </Bounded>
   )

@@ -24,7 +24,7 @@ export const ABOUT: About[] = [
     description:
       "Every great ride starts with solid hardware. Our high-tensile bolts and nuts keep your setup tight, session after session. No stripped bolts, no loose trucks—just pure skating.",
     foregroundImage: "/assets/icons/double-sided-wrench-tool.svg",
-    bg: "bg-navy",
+    bg: "bg-dark-green",
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ export const ABOUT: About[] = [
     description:
       "From rough pavement to smooth ledges, our gear is built to withstand the demands of street skating. Push harder, grind longer, and ride with confidence.",
     foregroundImage: "/assets/icons/skateboard.svg",
-    bg: "bg-dark-green",
+    bg: "bg-navy",
     changeOrder: true,
   },
 ];
