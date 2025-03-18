@@ -1,5 +1,6 @@
 "use client";
 
+import { MASK_CLASSES } from "@/sections/video";
 import { useEffect, useRef, useState } from "react";
 
 type Props = {
@@ -34,7 +35,7 @@ export default function VideoFrame({
   });
 
   return (
-    <div ref={myVideo}>
+    <div ref={myVideo} className={MASK_CLASSES}>
       {isInView && <video src={src} autoPlay loop muted />}
     </div>
   );
