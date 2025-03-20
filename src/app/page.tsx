@@ -3,6 +3,7 @@ import Products from "@/sections/products";
 import About from "@/sections/about";
 import { ABOUT } from "@/_mock/_about";
 import Video from "@/sections/video";
+import Footer from "@/sections/footer";
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
       </div>
 
       <Video/>
+
+      <Footer/>
     </>
   );
 }
