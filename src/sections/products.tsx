@@ -6,7 +6,7 @@ import SlideIn from "@/components/slide-in";
 
 export default function Products() {
   return (
-    <Bounded className="bg-gray">
+    <Bounded className="bg-gray" id="products">
       <SlideIn>
         <Heading className="text-center mb-3">Fresh Arrivals</Heading>
       </SlideIn>

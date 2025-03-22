@@ -11,9 +11,9 @@ export default function Header() {
         </Link>
         <nav className="row-start-2 md:row-start-1 col-span-full md:col-span-1 md:col-start-2">
           <ul className="flex flex-wrap justify-center items-center gap-5">
-            <li><Link href="/" className="hover:text-purple transition-all duration-300">Boards</Link></li>
-            <li><Link href="/" className="hover:text-purple transition-all duration-300">About</Link></li>
-            <li><Link href="/" className="hover:text-purple transition-all duration-300">Contact us</Link></li>
+            <li><Link href="#board" className="hover:text-purple transition-all duration-300">Board</Link></li>
+            <li><Link href="#products" className="hover:text-purple transition-all duration-300">Products</Link></li>
+            <li><Link href="#about" className="hover:text-purple transition-all duration-300">About</Link></li>
           </ul>
         </nav>
         <div className="justify-self-end">

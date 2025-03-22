@@ -13,7 +13,7 @@ export default function Home() {
 
       <Products />
 
-      <div className="relative">
+      <div className="relative" id="about">
         {ABOUT.map((aboutData) => (
           <About
           key={aboutData.id}
