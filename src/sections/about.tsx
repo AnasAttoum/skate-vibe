@@ -4,6 +4,7 @@ import Bounded from "@/components/bounded";
 import Heading from "@/components/heading";
 import ParallaxImages from "@/components/parallax-images";
 import type { About } from "@/types/about";
+import SlideIn from "@/components/slide-in";
 
 export default function About({
   id = 0,
@@ -17,14 +18,18 @@ export default function About({
   return (
     <Bounded
       className={clsx(!isLast ? "sticky" : "relative", "text-white", bg)}
-      style={!isLast ? { top: id * 2 - 2 + "rem" }:{}}
+      style={!isLast ? { top: id * 2 - 2 + "rem" } : {}}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 items-center my-0 md:my-10">
         <div className={clsx(changeOrder && "order-2")}>
-          <Heading className="my-5 md:my-10 leading-10">{title}</Heading>
-          <Heading comp="h4" className="max-w-md leading-8">
-            {description}
-          </Heading>
+          <SlideIn>
+            <Heading className="my-5 md:my-10 leading-10">{title}</Heading>
+          </SlideIn>
+          <SlideIn delay={.3}>
+            <Heading comp="h4" className="max-w-md leading-8">
+              {description}
+            </Heading>
+          </SlideIn>
         </div>
 
         <ParallaxImages
