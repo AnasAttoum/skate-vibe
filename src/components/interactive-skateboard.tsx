@@ -2,8 +2,9 @@
 
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from '@react-three/drei'
+import { ContactShadows, Environment, OrbitControls } from '@react-three/drei'
 import { Skateboard3D } from "./skateboard-3d";
+import { Model } from "./model";
 
 
 export default function InteractiveSkateboard() {
@@ -11,8 +12,8 @@ export default function InteractiveSkateboard() {
     <div className="absolute inset-0 flex justify-center items-center">
       <Canvas
         className="min-h-[60rem] w-full"
-        camera={{ position: [0, 0, 0]
-          // , fov: 55 
+        camera={{ position: [-2, 3, 7]
+          , fov: 80 
         }}
       >
         <Suspense fallback={<>Loading...</>}>
@@ -28,7 +29,10 @@ function Scene() {
     <group>
       <OrbitControls/>
       {/* <pointLight position={[1, 1, 1]} intensity={5} /> */}
-      <Environment preset="forest"
+      <directionalLight intensity={1} position={[0, 3, 2]}/>
+      <Environment 
+      files="/hdr/warehouse-256.hdr"
+      // preset="forest"
       // background 
       />
 
@@ -37,8 +41,9 @@ function Scene() {
         {/* <meshStandardMaterial /> */}
         {/* <boxGeometry /> */}
       {/* </mesh> */}
-
-      <Skateboard3D/>
+      {/* <Skateboard3D/> */}
+      <Model/>
+      <ContactShadows opacity={0.6}/>
     </group>
   );
 }
