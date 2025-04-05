@@ -1,9 +1,7 @@
 import * as THREE from "three";
 import React, { useMemo } from "react";
-import { useGLTF, useTexture } from "@react-three/drei";
+import { useGLTF } from "@react-three/drei";
 import { GLTF } from "three-stdlib";
-
-type Props = {};
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -22,41 +20,41 @@ type GLTFResult = GLTF & {
   };
 };
 
-export function Skateboard3D(props: Props) {
+export function Skateboard3D() {
   const { nodes, materials } = useGLTF(
     "/glb/skateboard.glb"
   ) as unknown as GLTFResult;
 
-  const gripTapeDiffuse = useTexture("/assets/background/texture/griptape-diffuse.webp");
-  const gripTapeRoughness = useTexture("/assets/background/texture/griptape-roughness.webp");
-  const logo = useTexture("/assets/icons/skate-vibe.png");
-  // logo.flipY = false
+  // const gripTapeDiffuse = useTexture("/assets/background/texture/griptape-diffuse.webp");
+  // const gripTapeRoughness = useTexture("/assets/background/texture/griptape-roughness.webp");
+  // const logo = useTexture("/assets/icons/skate-vibe.png");
+  // // logo.flipY = false
 
-  const gripTapeMaterial = useMemo(() => {
-    const material = new THREE.MeshStandardMaterial({
-      // map: gripTapeDiffuse,
-      map: logo,
-      bumpMap: gripTapeRoughness,
-      roughnessMap: gripTapeRoughness,
-      bumpScale: 3.5,
-      roughness: 0.8,
-      color: "#777",
-    });
-    if (gripTapeDiffuse) {
-      gripTapeDiffuse.wrapS = THREE.RepeatWrapping;
-      gripTapeDiffuse.wrapT = THREE.RepeatWrapping;
-      gripTapeDiffuse.repeat.set(9, 9);
-      gripTapeDiffuse.needsUpdate = true;
+  // const gripTapeMaterial = useMemo(() => {
+  //   const material = new THREE.MeshStandardMaterial({
+  //     // map: gripTapeDiffuse,
+  //     map: logo,
+  //     bumpMap: gripTapeRoughness,
+  //     roughnessMap: gripTapeRoughness,
+  //     bumpScale: 3.5,
+  //     roughness: 0.8,
+  //     color: "#777",
+  //   });
+  //   if (gripTapeDiffuse) {
+  //     gripTapeDiffuse.wrapS = THREE.RepeatWrapping;
+  //     gripTapeDiffuse.wrapT = THREE.RepeatWrapping;
+  //     gripTapeDiffuse.repeat.set(9, 9);
+  //     gripTapeDiffuse.needsUpdate = true;
 
-      gripTapeRoughness.wrapS = THREE.RepeatWrapping;
-      gripTapeRoughness.wrapT = THREE.RepeatWrapping;
-      gripTapeRoughness.repeat.set(9, 9);
-      gripTapeRoughness.needsUpdate = true;
+  //     gripTapeRoughness.wrapS = THREE.RepeatWrapping;
+  //     gripTapeRoughness.wrapT = THREE.RepeatWrapping;
+  //     gripTapeRoughness.repeat.set(9, 9);
+  //     gripTapeRoughness.needsUpdate = true;
 
-      gripTapeRoughness.anisotropy = 8;
-    }
-    return material;
-  }, []);
+  //     gripTapeRoughness.anisotropy = 8;
+  //   }
+  //   return material;
+  // }, []);
 
   const metalMaterial = useMemo(() => {
     const material = new THREE.MeshStandardMaterial({
@@ -75,7 +73,7 @@ export function Skateboard3D(props: Props) {
   }, []);
 
   return (
-    <group {...props} dispose={null}>
+    <group dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="skateboardobjcleanermaterialmergergles">

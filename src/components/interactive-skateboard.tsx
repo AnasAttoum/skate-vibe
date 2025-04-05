@@ -5,7 +5,7 @@ import { Suspense, useRef } from "react";
 import { Canvas, ThreeEvent } from "@react-three/fiber";
 import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
 import { Skateboard3D } from "./skateboard-3d";
-import gsap from "gsap";
+import { backJump } from "@/utils/gsap";
 
 export default function InteractiveSkateboard() {
   return (
@@ -33,37 +33,7 @@ function Scene() {
 
     const { name } = event.object;
 
-    gsap
-      .timeline()
-      .to(skateboard.position, {
-        y: 25,
-        duration: 0.5,
-        ease: "power2.out",
-        delay: 0.25,
-      })
-      .to(skateboard.position, {
-        y: 0,
-        duration: 0.4,
-        ease: "power2.in",
-      });
-
-    gsap
-      .timeline()
-      .to(skateboard.rotation, {
-        x: -0.6,
-        duration: 0.2,
-        ease: "none",
-      })
-      .to(skateboard.rotation, {
-        x: 0.4,
-        duration: 0.8,
-        ease: "power2.in",
-      })
-      .to(skateboard.rotation, {
-        x: 0,
-        duration: 0.15,
-        ease: "none",
-      });
+    if (name === "back") backJump(skateboard);
   };
 
   return (
@@ -88,16 +58,23 @@ function Scene() {
           <Skateboard3D />
         </group>
       </group>
-      <mesh name="middle" onClick={onClick}>
-        <boxGeometry args={[15, 10, 80]} />
+
+      <mesh name="front" position={[0, 0, 27]} onClick={onClick}>
+        <boxGeometry args={[15, 10, 27]} />
         <meshStandardMaterial visible={false} />
       </mesh>
-      <ContactShadows
-        opacity={1}
-        scale={80}
-        blur={5}
-        position={[0, -10, 0]}
-      />
+
+      <mesh name="middle" onClick={onClick}>
+        <boxGeometry args={[15, 10, 27]} />
+        <meshStandardMaterial visible={false} />
+      </mesh>
+
+      <mesh name="back" position={[0, 0, -27]} onClick={onClick}>
+        <boxGeometry args={[15, 10, 27]} />
+        <meshStandardMaterial visible={false} />
+      </mesh>
+
+      <ContactShadows opacity={1} scale={80} blur={5} position={[0, -10, 0]} />
     </group>
   );
 }
