@@ -21,9 +21,7 @@ type GLTFResult = GLTF & {
 };
 
 export function Skateboard3D() {
-  const { nodes, materials } = useGLTF(
-    "/glb/skateboard.glb"
-  ) as unknown as GLTFResult;
+  const { nodes, materials } = useGLTF("/glb/skateboard.glb") as unknown as GLTFResult;
 
   // const gripTapeDiffuse = useTexture("/assets/background/texture/griptape-diffuse.webp");
   // const gripTapeRoughness = useTexture("/assets/background/texture/griptape-roughness.webp");
