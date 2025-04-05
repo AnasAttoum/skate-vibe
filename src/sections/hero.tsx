@@ -2,6 +2,7 @@ import Background from "@/components/background";
 import Bounded from "@/components/bounded";
 import ButtonLink from "@/components/button-link";
 import Heading from "@/components/heading";
+import InteractiveSkateboard from "@/components/interactive-skateboard";
 
 export default function Hero() {
   return (
@@ -20,6 +21,8 @@ export default function Hero() {
           <ButtonLink color="blue">Build Your Board</ButtonLink>
         </div>
       </div>
+
+      <InteractiveSkateboard/>
     </Bounded>
   );
 }
