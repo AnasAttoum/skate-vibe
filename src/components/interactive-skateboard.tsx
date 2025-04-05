@@ -9,7 +9,7 @@ import { backJump } from "@/utils/gsap";
 
 export default function InteractiveSkateboard() {
   return (
-    <div className="absolute inset-0 flex justify-center items-center border">
+    <div className="absolute inset-0 flex justify-center items-center border z-50">
       <Canvas
         className="min-h-[60rem] w-full"
         camera={{ position: [40, 25, 50], fov: 90 }}
