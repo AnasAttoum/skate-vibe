@@ -3,13 +3,13 @@
 import * as THREE from "three";
 import { Suspense, useRef } from "react";
 import { Canvas, ThreeEvent } from "@react-three/fiber";
-import { ContactShadows, Environment, OrbitControls } from "@react-three/drei";
+import { ContactShadows, Environment } from "@react-three/drei";
 import { Skateboard3D } from "./skateboard-3d";
 import { backJump } from "@/utils/gsap";
 
 export default function InteractiveSkateboard() {
   return (
-    <div className="absolute inset-0 flex justify-center items-center border z-50">
+    <div className="absolute inset-0 flex justify-center items-center z-50">
       <Canvas
         className="min-h-[60rem] w-full"
         camera={{ position: [40, 25, 50], fov: 90 }}
@@ -34,11 +34,13 @@ function Scene() {
     const { name } = event.object;
 
     if (name === "back") backJump(skateboard);
+    else if (name === "front") backJump(skateboard);
+    else backJump(skateboard);
   };
 
   return (
     <group>
-      <OrbitControls />
+      {/* <OrbitControls /> */}
       {/* <pointLight position={[1, 1, 1]} intensity={5} /> */}
       <directionalLight intensity={1} position={[0, 3, 2]} />
       <Environment
