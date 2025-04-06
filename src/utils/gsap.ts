@@ -1,9 +1,9 @@
 import * as THREE from "three";
 import gsap from "gsap";
 
-const jumpSkateboard = (skateboard: THREE.Group) => {
+export const jumpSkateboard = (skateboard: THREE.Group, setIsAnimated:(value:boolean)=>void) => {
   gsap
-    .timeline()
+    .timeline({onComplete:()=>setIsAnimated(false)})
     .to(skateboard.position, {
       y: 25,
       duration: 0.5,
@@ -96,19 +96,13 @@ const RotateY360Skateboard = (skateboard: THREE.Group, container: THREE.Group) =
 };
 
 export const backJump = (skateboard: THREE.Group) => {
-  jumpSkateboard(skateboard);
-
   basicRotateSkateboard(skateboard);
 };
 
 export const middleJump = (skateboard: THREE.Group) => {
-  jumpSkateboard(skateboard);
-
   RotateZ360Skateboard(skateboard);
 };
 
 export const frontJump = (skateboard: THREE.Group, container: THREE.Group) => {
-  jumpSkateboard(skateboard);
-
   RotateY360Skateboard(skateboard, container);
 };
