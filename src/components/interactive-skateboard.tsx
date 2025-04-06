@@ -5,7 +5,7 @@ import { Suspense, useRef } from "react";
 import { Canvas, ThreeEvent } from "@react-three/fiber";
 import { ContactShadows, Environment } from "@react-three/drei";
 import { Skateboard3D } from "./skateboard-3d";
-import { backJump } from "@/utils/gsap";
+import { backJump, frontJump, middleJump } from "@/utils/gsap";
 
 export default function InteractiveSkateboard() {
   return (
@@ -24,18 +24,20 @@ export default function InteractiveSkateboard() {
 
 function Scene() {
   const SkateboardRef = useRef<THREE.Group>(null);
+  const containerRef = useRef<THREE.Group>(null);
 
   const onClick = (event: ThreeEvent<MouseEvent>) => {
     event.stopPropagation();
 
     const skateboard = SkateboardRef.current;
-    if (!skateboard) return;
+    const container = containerRef.current;
+    if (!skateboard || !container) return;
 
     const { name } = event.object;
 
     if (name === "back") backJump(skateboard);
-    else if (name === "front") backJump(skateboard);
-    else backJump(skateboard);
+    else if (name === "front") frontJump(skateboard, container);
+    else middleJump(skateboard);
   };
 
   return (
@@ -55,19 +57,21 @@ function Scene() {
       {/* <boxGeometry /> */}
       {/* </mesh> */}
       {/* <Skateboard3D/> */}
-      <group ref={SkateboardRef} position={[0, 0, -25]}>
-        <group position={[0, 0, 25]}>
-          <Skateboard3D />
+      <group ref={containerRef}>
+        <group ref={SkateboardRef} position={[0, 0, -25]}>
+          <group position={[0, 0, 25]}>
+            <Skateboard3D />
+          </group>
         </group>
       </group>
 
-      <mesh name="front" position={[0, 0, 27]} onClick={onClick}>
-        <boxGeometry args={[15, 10, 27]} />
+      <mesh name="front" position={[0, 0, 32]} onClick={onClick}>
+        <boxGeometry args={[15, 10, 17]} />
         <meshStandardMaterial visible={false} />
       </mesh>
 
-      <mesh name="middle" onClick={onClick}>
-        <boxGeometry args={[15, 10, 27]} />
+      <mesh name="middle" position={[0, 0, 5]} onClick={onClick}>
+        <boxGeometry args={[15, 10, 37]} />
         <meshStandardMaterial visible={false} />
       </mesh>
 

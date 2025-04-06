@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import gsap from "gsap";
 
-export const jumpSkateboard = (skateboard: THREE.Group) => {
+const jumpSkateboard = (skateboard: THREE.Group) => {
   gsap
     .timeline()
     .to(skateboard.position, {
@@ -17,7 +17,7 @@ export const jumpSkateboard = (skateboard: THREE.Group) => {
     });
 };
 
-export const rotateSkateboard = (skateboard: THREE.Group) => {
+const basicRotateSkateboard = (skateboard: THREE.Group) => {
   gsap
     .timeline()
     .to(skateboard.rotation, {
@@ -37,8 +37,78 @@ export const rotateSkateboard = (skateboard: THREE.Group) => {
     });
 };
 
+const RotateZ360Skateboard = (skateboard: THREE.Group) => {
+  gsap
+    .timeline()
+    .to(skateboard.rotation, {
+      x: -0.6,
+      duration: 0.2,
+      ease: "none",
+    })
+    .to(skateboard.rotation, {
+      x: 0.4,
+      duration: 0.8,
+      ease: "power2.in",
+    })
+    .to(
+      skateboard.rotation,
+      {
+        z: `+=${Math.PI * 2}`,
+        duration: 0.7,
+        ease: "none",
+      },
+      0.3
+    )
+    .to(skateboard.rotation, {
+      x: 0,
+      duration: 0.15,
+      ease: "none",
+    });
+};
+
+const RotateY360Skateboard = (skateboard: THREE.Group, container: THREE.Group) => {
+  gsap
+    .timeline()
+    .to(skateboard.rotation, {
+      x: -0.6,
+      duration: 0.2,
+      ease: "none",
+    })
+    .to(skateboard.rotation, {
+      x: 0.4,
+      duration: 0.8,
+      ease: "power2.in",
+    })
+    .to(
+      container.rotation,
+      {
+        y: `+=${Math.PI * 2}`,
+        duration: 0.6,
+        ease: "none",
+      },
+      0.3
+    )
+    .to(skateboard.rotation, {
+      x: 0,
+      duration: 0.15,
+      ease: "none",
+    });
+};
+
 export const backJump = (skateboard: THREE.Group) => {
   jumpSkateboard(skateboard);
 
-  rotateSkateboard(skateboard);
+  basicRotateSkateboard(skateboard);
+};
+
+export const middleJump = (skateboard: THREE.Group) => {
+  jumpSkateboard(skateboard);
+
+  RotateZ360Skateboard(skateboard);
+};
+
+export const frontJump = (skateboard: THREE.Group, container: THREE.Group) => {
+  jumpSkateboard(skateboard);
+
+  RotateY360Skateboard(skateboard, container);
 };
