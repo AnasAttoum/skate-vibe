@@ -11,7 +11,7 @@ type Props = {
 export default function Hotspot({
   position,
   isVisible,
-  color = "#ff006e",
+  color = "#dda15e",
 }: Props) {
   const hotspotRef = useRef<THREE.Mesh>(null);
 
