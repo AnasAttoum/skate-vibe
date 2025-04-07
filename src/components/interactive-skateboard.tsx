@@ -7,6 +7,7 @@ import { ContactShadows, Environment } from "@react-three/drei";
 import { Skateboard3D } from "./skateboard-3d";
 import { backJump, frontJump, jumpSkateboard, middleJump } from "@/utils/gsap";
 import Hotspot from "./hotspot";
+import gsap from "gsap";
 
 const INITIAL_CAMERA_POSITION = [40, 25, 50] as const;
 
@@ -37,6 +38,38 @@ function Scene() {
   const [isAnimated, setIsAnimated] = useState(false);
 
   const { camera } = useThree();
+
+  useEffect(() => {
+    if (!SkateboardRef || !containerRef) return;
+
+    if (containerRef.current?.position)
+      gsap
+        .timeline()
+        .to(containerRef.current.position, {
+          x: 10,
+          duration: 4,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        })
+        .to(containerRef.current.position, {
+          x: -10,
+          duration: 4,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+
+    // if (SkateboardRef.current?.rotation)
+    //   gsap.to(SkateboardRef.current.rotation, {
+    //     y: Math.PI/64,
+    //     duration: 2,
+    //     repeat: -1,
+    //     yoyo: true,
+    //     ease: "sine.inOut",
+    //   });
+  }, []);
+
   useEffect(() => {
     camera.lookAt(new THREE.Vector3(-10, -5, 0));
 
