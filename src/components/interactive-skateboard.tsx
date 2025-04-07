@@ -1,19 +1,21 @@
 "use client";
 
 import * as THREE from "three";
-import { Suspense, useRef, useState } from "react";
-import { Canvas, ThreeEvent } from "@react-three/fiber";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { Canvas, ThreeEvent, useThree } from "@react-three/fiber";
 import { ContactShadows, Environment } from "@react-three/drei";
 import { Skateboard3D } from "./skateboard-3d";
 import { backJump, frontJump, jumpSkateboard, middleJump } from "@/utils/gsap";
 import Hotspot from "./hotspot";
+
+const INITIAL_CAMERA_POSITION = [40, 25, 50] as const;
 
 export default function InteractiveSkateboard() {
   return (
     <div className="absolute inset-0 flex justify-center items-center z-50">
       <Canvas
         className="min-h-[60rem] w-full"
-        camera={{ position: [40, 25, 50], fov: 90 }}
+        camera={{ position: INITIAL_CAMERA_POSITION, fov: 90 }}
       >
         <Suspense fallback={<>Loading...</>}>
           <Scene />
@@ -34,6 +36,27 @@ function Scene() {
   });
   const [isAnimated, setIsAnimated] = useState(false);
 
+  const { camera } = useThree();
+  useEffect(() => {
+    camera.lookAt(new THREE.Vector3(-10, -5, 0));
+
+    const handleZoom = () => {
+      const scale = Math.max(Math.min(1000 / window.innerWidth, 1.7), 1);
+      console.log("🚀 ~ handleZoom ~ scale:", window.innerWidth, scale);
+
+      camera.position.x = INITIAL_CAMERA_POSITION[0] * scale;
+      camera.position.y = INITIAL_CAMERA_POSITION[1] * scale;
+      camera.position.z = INITIAL_CAMERA_POSITION[2] * scale;
+    };
+    handleZoom();
+
+    window.addEventListener("resize", handleZoom);
+
+    return () => {
+      window.removeEventListener("resize", handleZoom);
+    };
+  }, [camera]);
+
   const onClick = (event: ThreeEvent<MouseEvent>) => {
     event.stopPropagation();
 
@@ -45,7 +68,7 @@ function Scene() {
 
     setShowHotspot((prev) => ({ ...prev, [name]: false }));
 
-    setIsAnimated(true)
+    setIsAnimated(true);
     jumpSkateboard(skateboard, setIsAnimated);
     if (name === "back") backJump(skateboard);
     else if (name === "front") frontJump(skateboard, container);
@@ -83,7 +106,7 @@ function Scene() {
           <Hotspot
             position={[0, 2, 0]}
             isVisible={!isAnimated && showHotspot.back}
-            color="#c1121f"
+            color="#5c677d"
           />
 
           <group position={[0, 0, 25]}>
