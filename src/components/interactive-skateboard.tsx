@@ -13,15 +13,17 @@ const INITIAL_CAMERA_POSITION = [40, 25, 50] as const;
 
 export default function InteractiveSkateboard() {
   return (
-    <div className="absolute inset-0 flex justify-center items-center z-50">
-      <Canvas
-        className="min-h-[60rem] w-full"
-        camera={{ position: INITIAL_CAMERA_POSITION, fov: 90 }}
-      >
-        <Suspense fallback={<>Loading...</>}>
-          <Scene />
-        </Suspense>
-      </Canvas>
+    <div className="absolute inset-0 flex justify-center items-center">
+      <div className="h-2/3 w-full z-50">
+        <Canvas
+          className="h-full w-full"
+          camera={{ position: INITIAL_CAMERA_POSITION, fov: 55 }}
+        >
+          <Suspense fallback={<>Loading...</>}>
+            <Scene />
+          </Suspense>
+        </Canvas>
+      </div>
     </div>
   );
 }

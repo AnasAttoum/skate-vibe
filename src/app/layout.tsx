@@ -32,7 +32,6 @@ export default function RootLayout({
       <body
         className={`${bowlby.variable} ${dmMono.variable} antialiased font-mono font-medium text-zinc-800`}
       >
-        <Header/>
         {children}
       </body>
     </html>

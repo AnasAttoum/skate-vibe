@@ -8,7 +8,6 @@ import Footer from "@/sections/footer";
 export default function Home() {
   return (
     <>
-
       <Hero />
 
       <Products />
