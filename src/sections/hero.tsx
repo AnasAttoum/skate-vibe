@@ -18,7 +18,7 @@ export default function Hero() {
             and raw energy. At Skate-Vibe, we embrace the ride, the falls, and
             the triumphs that define every skater’s journey.
           </Heading>
-          <ButtonLink color="blue" href="/build">Build Your Board</ButtonLink>
+          {/* <ButtonLink color="blue" href="/build">Build Your Board</ButtonLink> */}
         </div>
       </div>
 
