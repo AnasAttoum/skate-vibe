@@ -1,6 +1,5 @@
 import Background from "@/components/background";
 import Bounded from "@/components/bounded";
-import ButtonLink from "@/components/button-link";
 import Heading from "@/components/heading";
 import InteractiveSkateboard from "@/components/interactive-skateboard";
 
